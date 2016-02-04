@@ -65,7 +65,7 @@ public class AdjMatrixGraph<E> implements Graph<E> {
 
 	@Override
 	public boolean insertEdge(int i, int j, int weight) {
-		if (i >= 0 && i < vertexCount() && j > 0 && j < vertexCount() && i != j
+		if (i >= 0 && i < vertexCount() && j >= 0 && j < vertexCount() && i != j
 				&& adjmatrix[i][j] == MAX_WEIGHT) {
 			this.adjmatrix[i][j] = weight;
 			return true;
@@ -125,9 +125,20 @@ public class AdjMatrixGraph<E> implements Graph<E> {
 
 	@Override
 	public String toString() {
-		return "AdjMatrixGraph [vertexlist=" + vertexlist + ", adjmatrix="
-				+ Arrays.toString(adjmatrix) + ", MAX_WEIGHT=" + MAX_WEIGHT
-				+ "]";
+		String str = "顶点集合: " + vertexlist.toString() + "\n";
+		str += "邻接矩阵: \n";
+		int n = vertexCount();
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (adjmatrix[i][j] == MAX_WEIGHT) {
+					str += " ∞";
+				} else {
+					str += " " + adjmatrix[i][j];
+				}
+			}
+			str += "\n";
+		}
+		return str;
 	}
 
 }
