@@ -10,12 +10,22 @@ public class WeightedUndiGraph3 {
 				new Edge(3, 0, 2), new Edge(3, 1, 6), new Edge(3, 2, 8),
 				new Edge(3, 4, 9), new Edge(4, 2, 3), new Edge(4, 3, 9) };
 		AdjMatrixGraph<String> graph = new AdjMatrixGraph<>(vertices, edges);
+
+		// 测试建立图
 		System.out.println(graph.toString());
-		graph.removeVertex(2);
-		System.out.println(graph.toString());
-		graph.removeEdge(2, 3);
-		graph.removeEdge(3, 2);
-		System.out.println(graph.toString());
+
+		// 测试删除顶点、边
+		// System.out.println(graph.toString());
+		// graph.removeVertex(2);
+		// System.out.println(graph.toString());
+		// graph.removeEdge(2, 3);
+		// graph.removeEdge(3, 2);
+		// System.out.println(graph.toString());
+
+		// 测试深度优先遍历
+		for (int i = 0; i < graph.vertexCount(); i++) {
+			graph.DFSTraverse(i);
+		}
 	}
 
 }

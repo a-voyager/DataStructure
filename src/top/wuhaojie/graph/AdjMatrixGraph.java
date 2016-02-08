@@ -10,7 +10,7 @@ import java.util.List;
  * @author wuhaojie
  *
  */
-public class AdjMatrixGraph<E> implements Graph<E> {
+public class AdjMatrixGraph<E> extends AbstractGraph<E> implements Graph<E> {
 
 	/**
 	 * 顺序表存储图的顶点集合
