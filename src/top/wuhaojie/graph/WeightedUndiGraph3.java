@@ -1,5 +1,11 @@
 package top.wuhaojie.graph;
 
+/**
+ * ≤‚ ‘Õº3
+ * 
+ * @author wuhaojie
+ *
+ */
 public class WeightedUndiGraph3 {
 
 	public static void main(String[] args) {
