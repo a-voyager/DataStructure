@@ -1,5 +1,12 @@
 package top.wuhaojie.graph;
 
+/**
+ * 包含遍历的抽象类
+ * 
+ * @author wuhaojie
+ *
+ * @param <E>
+ */
 public abstract class AbstractGraph<E> implements Graph<E> {
 	public abstract int vertexCount();
 
