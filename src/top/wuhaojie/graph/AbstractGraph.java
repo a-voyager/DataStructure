@@ -46,4 +46,5 @@ public abstract class AbstractGraph<E> implements Graph<E> {
 			w = getNextNeighbor(v, w);
 		}
 	}
+	
 }
