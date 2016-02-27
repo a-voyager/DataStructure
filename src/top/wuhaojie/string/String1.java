@@ -43,4 +43,33 @@ public class String1 {
 		return new String1(buffer);
 	}
 
+	public String1 subString(int begin, int end) {
+		if (begin < 0)
+			throw new StringIndexOutOfBoundsException(begin);
+		if (end > value.length)
+			throw new StringIndexOutOfBoundsException(end);
+		if (begin > end)
+			throw new StringIndexOutOfBoundsException(end - begin);
+		if (begin == 0 && end == value.length)
+			return this;
+		else {
+			char[] buffer = new char[end - begin];
+			for (int i = 0; i < buffer.length; i++)
+				buffer[i] = this.value[i + begin];
+			return new String1(buffer);
+		}
+	}
+
+	public String1 subString(int begin) {
+		return subString(begin, this.value.length);
+	}
+
+	public static void main(String[] args) {
+		char[] chars = { 'a', 'b', 'c', 'd' };
+		String1 str = new String1(chars);
+		chars[0] = 'y';
+		str = str.concat(str.subString(1, 3));
+		System.out.println("str = " + str.toString());
+	}
+
 }
