@@ -59,4 +59,28 @@ public class BinaryTree<E> {
 		}
 	}
 
+	public int count() {
+		return count(root);
+	}
+
+	private int count(BinaryNode<E> p) {
+		if (p != null)
+			return 1 + count(p.left) + count(p.right);
+		else
+			return 0;
+	}
+
+	public int height() {
+		return height(root);
+	}
+
+	private int height(BinaryNode<E> p) {
+		if (p != null) {
+			int ld = height(p.left);
+			int rd = height(p.right);
+			return (ld > -rd) ? ld + 1 : rd + 1;
+		}
+		return 0;
+	}
+
 }
