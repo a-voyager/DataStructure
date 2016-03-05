@@ -83,4 +83,42 @@ public class BinaryTree<E> {
 		return 0;
 	}
 
+	public BinaryNode<E> search(E value) {
+		return search(root, value);
+	}
+
+	private BinaryNode<E> search(BinaryNode<E> p, E value) {
+		BinaryNode<E> find = null;
+		if (p != null && value != null) {
+			if (p.data.equals(value))
+				find = p;
+			else {
+				find = search(p.left, value);
+				if (find == null)
+					find = search(p.right, value);
+			}
+		}
+		return find;
+	}
+
+	private BinaryNode<E> getParent(BinaryNode<E> node) {
+		if (root == null || node == null || node == root)
+			return null;
+		return getParent(root, node);
+	}
+
+	private BinaryNode<E> getParent(BinaryNode<E> p, BinaryNode<E> node) {
+		BinaryNode<E> find = null;
+		if (p != null) {
+			if (p.left == node || p.right == node)
+				find = p;
+			else {
+				find = getParent(p.left, node);
+				if (find == null)
+					find = getParent(p.right, node);
+			}
+		}
+		return find;
+	}
+
 }
