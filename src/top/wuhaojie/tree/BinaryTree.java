@@ -101,7 +101,7 @@ public class BinaryTree<E> {
 		return find;
 	}
 
-	private BinaryNode<E> getParent(BinaryNode<E> node) {
+	public BinaryNode<E> getParent(BinaryNode<E> node) {
 		if (root == null || node == null || node == root)
 			return null;
 		return getParent(root, node);
@@ -119,6 +119,27 @@ public class BinaryTree<E> {
 			}
 		}
 		return find;
+	}
+
+	public BinaryTree(E[] preorder) {
+		root = create(preorder);
+	}
+
+	private int i = 0;
+
+	private BinaryNode<E> create(E[] preorder) {
+		BinaryNode<E> p = null;
+		if (i < preorder.length) {
+			E elem = preorder[i];
+			i++;
+			if (elem != null) {
+				p = new BinaryNode<E>(elem);
+				p.left = create(preorder);
+				p.right = create(preorder);
+			}
+		}
+
+		return p;
 	}
 
 }
